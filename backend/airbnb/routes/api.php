@@ -3,6 +3,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\PlaceController;
 
 Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login');
@@ -11,6 +12,11 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('refresh', 'refresh');
 
 });
+
+
+Route::get('/getallplaces', [PlaceController::class, 'getAllPlaces']);
+Route::post('/getplacesbycategory', [PlaceController::class, 'getPlacesByCategoryName']);
+Route::post('/addplace', [PlaceController::class, 'addPlace']);
 /*
 |--------------------------------------------------------------------------
 | API Routes

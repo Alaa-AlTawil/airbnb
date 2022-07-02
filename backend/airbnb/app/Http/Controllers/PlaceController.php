@@ -11,11 +11,20 @@ class PlaceController extends Controller
             $places=Place::all();
             return response()->json([
                 "status" => "success",
-                "items" => $place
+                "items" => $places
             ],200);
     
         
     }
+    function getPlacesByCategoryName(Request $request){
+        $places=Place::where("category",$request->category)->get();
+        return response()->json([
+            "status" => "success",
+            "items" => $places
+        ],200);
+
+    
+}
     function addPlace(Request $request){
         
         $place=new Place;
