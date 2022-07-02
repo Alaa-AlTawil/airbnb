@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card';
 function Body() {
     return ( 
-        <div>
+        <div className='cards'>
             <Card/>
             <Card/>
             <Card/>

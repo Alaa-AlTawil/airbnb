@@ -101,6 +101,28 @@ align-items: center;
   height: 48px;
   cursor: pointer;
 }
+.cards{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: start ;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+
+}
+.card div img{
+  height: 260px;
+  width: 250px;
+  border-radius: 15px;
+}
+.card :nth-child(2){
+  display: flex;
+  justify-content: space-between;
+}
 /* .right-side-header button :nth-child(2){
   height: 100%;
 } */
