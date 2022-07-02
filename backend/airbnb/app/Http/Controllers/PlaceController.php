@@ -30,7 +30,9 @@ class PlaceController extends Controller
         $place=new Place;
         $place->title=$request->title;
         $place->description=$request->description;
+        $place->rate=$request->rate;
         $place->image=$request->image;
+        $place->date=$request->date;
         $place->category=$request->category;
         $place->price=$request->price;
         $place->save();
