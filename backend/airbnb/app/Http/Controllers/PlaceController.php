@@ -16,5 +16,19 @@ class PlaceController extends Controller
     
         
     }
-  
+    function addPlace(Request $request){
+        
+        $place=new Place;
+        $place->title=$request->title;
+        $place->description=$request->description;
+        $place->image=$request->image;
+        $place->category=$request->category;
+        $place->price=$request->price;
+        $place->save();
+        
+        return response()->json([
+            "status" => "success"],200);
+
+    
+}
 }
