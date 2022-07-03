@@ -1,9 +1,14 @@
 .header{
   height: 80px;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
   border-bottom: 1px solid  rgb(217, 208, 208);
   align-items: center;
+  position: fixed;
+  background-color: white;
+  z-index: 4;
+ 
 }
 .left-side-header img{
   cursor: pointer;
@@ -77,6 +82,11 @@ align-items: center;
   height: 100px;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
+  position: fixed;
+  z-index: 3;
+  top: 80px;
+  background-color: white;
 }
 .Categorybar div{
   display: flex;
@@ -107,6 +117,10 @@ align-items: center;
   justify-content: start ;
   padding-left: 50px;
   padding-right: 50px;
+  z-index: 1;
+  padding-top: 80px;
+
+
 }
 .card{
   display: flex;
@@ -172,7 +186,11 @@ align-items: center;
   left: 0;
   z-index: 2;
 }
-
+/* .top{
+  position: fixed;
+  background-color: white;
+  width: 100%;
+} */
 .box {
   position: relative;
   width: 70%;
