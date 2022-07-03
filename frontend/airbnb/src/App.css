@@ -120,20 +120,35 @@ align-items: center;
   width: 250px;
   border-radius: 15px;
 }
-.heart{
+.black{
   position:absolute;
-  right: 0px;
-  top: 0px;
+  right: 5px;
+  top: 5px;
   padding: 3px;
+  border: none;
+  background: none;
+  color:grey;
+  font-size: 30px;
   
+}
+.red{
+  position:absolute;
+  right: 5px;
+  top: 5px;
+  padding: 3px;
+  border: none;
+  background: none;
+  color:red;
+  font-size: 30px;
 }
 .heart:hover{
   cursor: pointer;
   padding: 3px;
   border-radius: 5px;
-  background-color: rgb(251, 93, 93);
-  color: white;
+  color: red;
 }
+
+
 .heart:active{
   cursor: pointer;
   color: red;
@@ -187,7 +202,10 @@ align-items: center;
   font-size: 20px;
 }
 
+.data_entry center div{
+  margin-top: 20px;
 
+}
 /* .right-side-header button :nth-child(2){
   height: 100%;
 } */

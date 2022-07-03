@@ -30,49 +30,54 @@ function addItems(){
 
 
   return (
-    <div>
+    <div className="data_entry">
       <center>
-        <input
+        <div><input
           className="inputs"
           type="text"
           id="name"
           placeholder="Location"
-        />
-          <input
-          className="inputs"
-          type="text"
-          id="cat"
-          placeholder="categoryname"
-        />
-        <input
+        /></div>
+          <div><select id="cat">
+            <option>islands</option>
+            <option>beach</option>
+            <option>pool</option>
+            <option>omg</option>
+            <option>parks</option>
+            <option>cabin</option>
+            <option>design</option>
+          </select></div>
+        <div><input
           className="inputs"
           type="text"
           id="distance"
           placeholder="Distance"
-        />
+        /></div>
+        <div>
         <input
           className="inputs"
           type="text"
           id="rate"
           placeholder="Rate"
         />
-        <input
+        </div>
+        <div><input
           className="inputs"
           type="text"
           id="date"
           placeholder="Date Range"
-        />
-        <input className="inputs" type="text" id="price" placeholder="Price" />
-        <input
+        /></div>
+        <div><input className="inputs" type="text" id="price" placeholder="Price" /></div>
+        <div><input
           type="file"
           id="addimage"
           onChange={() => {
             encode();
           }}
-        />
-        <button className="inputs" id="additembtn" onClick={()=>addItems()}>
+        /></div>
+        <div><button className="inputs" id="additembtn" onClick={()=>addItems()}>
           Add Product
-        </button>
+        </button></div>
       </center>
     </div>
   );
