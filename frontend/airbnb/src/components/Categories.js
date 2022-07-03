@@ -9,13 +9,21 @@ import design from '../assets/design.jpg'
 import {useEffect,useState} from 'react'
 import axios from "axios";
 import CatBody from "./CatBody";
+import Popup from "./Popup";
 
 function Categories() {
+
   const [data,  setdata]=useState([])
   const [selectedCat ,setselectedCat]=useState("")
+  const [isOpen, setIsOpen] = useState(false);
 useEffect(()=>{
   get("islands")
 },[])
+
+ 
+const togglePopup = () => {
+    setIsOpen(!isOpen);
+  }
 function get(id){
 
   axios.post(`http://127.0.0.1:8000/api/getplacesbycategory`,{category:id})
@@ -58,7 +66,15 @@ function get(id){
         <div><img src={design}/></div>
         <div className={ selectedCat==="design" ? "categories selected-cat":"categories"}>Design</div>
       </div>
-      <button>filters</button>
+      <button onClick={togglePopup}>filters</button>
+    {isOpen && <Popup
+      content={<>
+        <b>Filters</b>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <button>Test button</button>
+      </>}
+      handleClose={togglePopup}
+    />}
     </div>
     <div className="cards"><CatBody data={data}/></div></div>
   );

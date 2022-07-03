@@ -17,6 +17,7 @@ Route::controller(AuthController::class)->group(function () {
 Route::get('/getallplaces', [PlaceController::class, 'getAllPlaces']);
 Route::post('/getplacesbycategory', [PlaceController::class, 'getPlacesByCategoryName']);
 Route::post('/addplace', [PlaceController::class, 'addPlace']);
+Route::post('/getplacesbyprice', [PlaceController::class, 'getPlacesByPriceRange']);
 /*
 |--------------------------------------------------------------------------
 | API Routes
