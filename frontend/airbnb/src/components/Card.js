@@ -11,7 +11,7 @@ function Card({title,rate,desc,date,price,img,key}) {
                 <div><strong>{title}</strong></div>
                 <div>{rate}<div className='fontawesome'><FontAwesomeIcon icon={faStar} color='rgb(46, 45, 45)' /></div></div>
             </div>
-            <div>{desc}</div>
+            <div>{desc} kilometer away</div>
             <div>{date}</div>
             <div><strong>${price}</strong> night</div>
 
