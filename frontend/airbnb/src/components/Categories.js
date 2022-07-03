@@ -8,52 +8,59 @@ import pool from '../assets/pool.jpg'
 import design from '../assets/design.jpg'
 import {useEffect,useState} from 'react'
 import axios from "axios";
+import CatBody from "./CatBody";
 
 function Categories() {
-  const [data,setdata]=useState([])
-  const getcatid=(event)=>{    
-    var id=event.currentTarget.id
-    getPlaceById(id);
-  }
-  function getPlaceById(id){
-    console.log(id)
-    // axios.get(`http://127.0.0.1:8000/api/getallplaces`,{category:id})
-    //     .then(res => {
-    //     setdata(res.data["items"])
-    //     })
-  }
-  return (
+  const [data,  setdata]=useState([])
+  const [selectedCat ,setselectedCat]=useState("")
+useEffect(()=>{
+  get("islands")
+},[])
+function get(id){
+
+  axios.post(`http://127.0.0.1:8000/api/getplacesbycategory`,{category:id})
+                .then(res => {
+                setdata(res.data["items"])
+                setselectedCat(id)
+                console.log("hello")
+                })
+  console.log(id)
+ 
+
+}
+  return (<div>
     <div className="Categorybar">
-      <div  onClick={getcatid} id="islands" value="islands">
+      <div  onClick={()=>{get("islands")}} id="islands" value="islands">
         <div><img src={island}/></div>
-        <div className="categories"  >Islands</div>
+        <div className={ selectedCat==="islands" ? "categories selected-cat":"categories"}>Islands</div>
       </div>
-      <div  onClick={getcatid} id="beach" value="beach">
+      <div  onClick={()=>{get("beach")}} id="beach" value="beach">
         <div><img src={beach}/></div>
-        <div className="categories">Beaches</div>
+        <div className={ selectedCat==="beach" ? "categories selected-cat":"categories"}>Beaches</div>
       </div>
-      <div onClick={getcatid} id="pool" value="pool">
+      <div onClick={()=>{get("pool")}} id="pool" value="pool">
         <div><img src={pool}/></div>
-        <div className="categories">Amazing pools</div>
+        <div className={ selectedCat==="pool" ? "categories selected-cat":"categories"}>Amazing pools</div>
       </div>
-      <div onClick={getcatid} id="omg" value="OMG">
+      <div onClick={()=>{get("omg")}} id="omg" value="OMG">
         <div><img src={omg}/></div>
-        <div className="categories">OMG!</div>
+        <div className={ selectedCat==="omg" ? "categories selected-cat":"categories"}>OMG!</div>
       </div>
-      <div onClick={getcatid} id="parks" value="Parks">
+      <div onClick={()=>{get("parks")}} id="parks" value="Parks">
         <div><img src={nationalpark}/></div>
-        <div className="categories">National parks</div>
+        <div className={ selectedCat==="parks" ? "categories selected-cat":"categories"}>National parks</div>
       </div>
-      <div onClick={getcatid} id="cabin" value="Cabin">
+      <div onClick={()=>{get("cabin")}} id="cabin" value="Cabin">
         <div><img src={cabins}/></div>
-        <div className="categories">Cabins</div>
+        <div className={ selectedCat==="cabin" ? "categories selected-cat":"categories"}>Cabins</div>
       </div>
-      <div onClick={getcatid} id="design" value="Design">
+      <div onClick={()=>{get("design")}} id="design" value="Design">
         <div><img src={design}/></div>
-        <div className="categories">Design</div>
+        <div className={ selectedCat==="design" ? "categories selected-cat":"categories"}>Design</div>
       </div>
       <button>filters</button>
     </div>
+    <div className="cards"><CatBody data={data}/></div></div>
   );
 }
 

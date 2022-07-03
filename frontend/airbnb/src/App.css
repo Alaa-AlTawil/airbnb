@@ -122,6 +122,9 @@ align-items: center;
   display: flex;
   justify-content: space-between;
 }
+.selected-cat{
+  border-bottom: 2px solid grey;
+}
 
 /* .right-side-header button :nth-child(2){
   height: 100%;
