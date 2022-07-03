@@ -225,6 +225,25 @@ align-items: center;
   margin-top: 20px;
 
 }
+@media only screen and (max-width: 900px) {
+  .right-side-header div strong{
+    display: none;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .right-side-header{
+    display: none;
+  }
+  .left-side-header{
+    
+  }
+  .header{
+    text-align: center;
+  }
+  .mid-side-header{
+    display: none;
+  }
+}
 /* .right-side-header button :nth-child(2){
   height: 100%;
 } */
