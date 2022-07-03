@@ -140,6 +140,7 @@ align-items: center;
   background: none;
   color:red;
   font-size: 30px;
+  
 }
 .heart:hover{
   cursor: pointer;

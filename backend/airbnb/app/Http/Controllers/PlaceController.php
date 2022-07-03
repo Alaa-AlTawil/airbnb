@@ -43,7 +43,7 @@ class PlaceController extends Controller
     
 }
 function getPlacesByPriceRange(Request $request){
-    $places=Place::where("price" ,">", $request->min_price)->where("price" ,"<", $request->max_price)->get();
+    $places=Place::where("price" ,">", $request->min_price)->where("price" ,"<", $request->max_price)->where("category",$request->cat)->get();
     return response()->json([
         "status" => "success",
         "items" => $places

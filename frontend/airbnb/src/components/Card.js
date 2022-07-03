@@ -10,7 +10,7 @@ function Card({title,rate,desc,date,price,img,key}) {
     }
     return ( 
         <div className='card' key={key}>
-            <div><button className={isActive ? "red" : "black"} onClick={()=>handleToggle()}>&#9829;</button><img src={img}/></div>
+            <div><button className={isActive ? "red" : "black"} onClick={()=>handleToggle()} >&#9829;</button><img src={img}/></div>
             <div>
                 <div><strong>{title}</strong></div>
                 <div>{rate}<div className='fontawesome'><FontAwesomeIcon icon={faStar} color='rgb(46, 45, 45)' /></div></div>

@@ -19,7 +19,16 @@ function Categories() {
 useEffect(()=>{
   get("islands")
 },[])
+function search(){
+  var min=document.getElementById("min")
+  var max=document.getElementById("max")
+  axios.post(`http://127.0.0.1:8000/api/getplacesbyprice`,{min_price:min.value,max_price:max.value,cat:selectedCat})
+                .then(res => {
+                setdata(res.data["items"])
 
+                })
+
+}
  
 const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -30,7 +39,6 @@ function get(id){
                 .then(res => {
                 setdata(res.data["items"])
                 setselectedCat(id)
-                console.log("hello")
                 })
   console.log(id)
  
@@ -70,8 +78,13 @@ function get(id){
     {isOpen && <Popup
       content={<>
         <b>Filters</b>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <button>Test button</button>
+        <div>
+          <input type="text" id="min" placeholder="minimum number"/>
+          <input type="text" id="max" placeholder="maximum number"/>
+        </div>
+        <button onClick={()=>{
+          search()
+        }}>Search</button>
       </>}
       handleClose={togglePopup}
     />}
