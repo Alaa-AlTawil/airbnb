@@ -12,7 +12,6 @@ import CatBody from "./CatBody";
 import Popup from "./Popup";
 
 function Categories() {
-
   const [data,  setdata]=useState([])
   const [selectedCat ,setselectedCat]=useState("")
   const [isOpen, setIsOpen] = useState(false);
@@ -25,24 +24,17 @@ function search(){
   axios.post(`http://127.0.0.1:8000/api/getplacesbyprice`,{min_price:min.value,max_price:max.value,cat:selectedCat})
                 .then(res => {
                 setdata(res.data["items"])
-
                 })
-
 }
- 
 const togglePopup = () => {
     setIsOpen(!isOpen);
   }
 function get(id){
-
   axios.post(`http://127.0.0.1:8000/api/getplacesbycategory`,{category:id})
                 .then(res => {
                 setdata(res.data["items"])
                 setselectedCat(id)
                 })
-  console.log(id)
- 
-
 }
   return (<div>
     <div className="Categorybar">

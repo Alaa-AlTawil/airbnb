@@ -1,8 +1,7 @@
 import React from 'react';
-import rest from '../assets/try.jpeg';
-import {useEffect,useState} from 'react'
+import {useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar,faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 function Card({title,rate,desc,date,price,img,key}) {
     const[isActive,setActive]=useState(false)
     const handleToggle= ()=>{
@@ -18,7 +17,6 @@ function Card({title,rate,desc,date,price,img,key}) {
             <div>{desc} kilometer away</div>
             <div>{date}</div>
             <div><strong>${price}</strong> night</div>
-
         </div>
      );
 }

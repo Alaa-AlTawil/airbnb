@@ -22,13 +22,9 @@ function addItems(){
     axios.post(`http://127.0.0.1:8000/api/addplace`, {title:name.value, 
         description:distance.value,image:s,category:category.value,price:price.value,rate:rate.value,date:date.value})
         .then(res => {
-          
-          alert("item added")
-         
+          alert("item added")        
         })
 }
-
-
   return (
     <div className="data_entry">
       <center>

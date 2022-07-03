@@ -2,7 +2,6 @@ import '../App.css';
 import Header from './Header';
 import Categories from './Categories';
 
-
 function Start() {
   return (
     <div>
